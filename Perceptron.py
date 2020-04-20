@@ -15,7 +15,6 @@ class Perceptron:
                 ans = self.predict(i)
 
                 if ans != self.targets[aux]:
-                    #print(str("entroucls\n"))
                     for idx,val in enumerate(self.weights):            
                         self.weights[idx] += (self.targets[aux] - ans) * self.inputs[aux][idx] * self.learning_rate
                         #self.bias_weight += (self.targets[aux] - ans) * self.targets[aux]
