@@ -1,1 +1,1 @@
-# Multilayer-Perceptron-Neural-Network
+# Artificial-Intelligence-Algorithms
