@@ -6,25 +6,24 @@ class Perceptron:
         self.targets = np.array([1,1,-1,-1])
         self.learning_rate = 1
         self.weights = np.array([0,0,0,0])
-        #self.bias_weight = 0
+        self.bias_weight = 0
         super().__init__()
     
     def train(self, epochs):
         for o in range (epochs):
             for aux,i in enumerate(self.inputs):
                 ans = self.predict(i)
-
                 if ans != self.targets[aux]:
                     for idx,val in enumerate(self.weights):            
                         self.weights[idx] += (self.targets[aux] - ans) * self.inputs[aux][idx] * self.learning_rate
-                        #self.bias_weight += (self.targets[aux] - ans) * self.targets[aux]
+                        self.bias_weight += (self.targets[aux] - ans) * self.learning_rate
         return self.weights
 
     def predict(self,inputs):
         sum = 0
         for indx,i in enumerate(inputs):
             sum += i * self.weights[indx] 
-        #sum += self.bias_weight
+        sum += self.bias_weight
         return self.step(sum)
 
     def step(self, x):
